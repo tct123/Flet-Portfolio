@@ -1,9 +1,13 @@
 import flet as ft
+import colors as cs
+
+bgcolor = cs.NONE
 
 
 def main(page: ft.Page):
     page.title = "Portfolio"
-    page.appbar = ft.AppBar(title=ft.Text(page.title))
+    page.bgcolor = bgcolor
+    page.appbar = ft.AppBar(title=ft.Text(page.title), bgcolor=bgcolor)
     text = ft.Text("Hello, Flet!")
     textfield = ft.TextField(hint_text="enter text")
 
@@ -24,11 +28,8 @@ def main(page: ft.Page):
         )
     )
     page.add(ft.SafeArea(ft.Row(controls=[textfield])))
-    page.add(
-        ft.SafeArea(
-            ft.TextButton(text="Change Text", on_click=change)
-        )
-    )
+    page.add(ft.SafeArea(ft.TextButton(text="Change Text", on_click=change)))
+    page.add(ft.SafeArea(ft.Row(controls=[ft.TextButton(text="Github"),ft.TextButton(text="Github")])))
 
 
 ft.app(main)
