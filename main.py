@@ -8,6 +8,14 @@ def main(page: ft.Page):
     page.title = "Portfolio"
     page.bgcolor = bgcolor
     page.appbar = ft.AppBar(title=ft.Text(page.title), bgcolor=bgcolor)
+    page.bottom_appbar = ft.BottomAppBar(
+        content=ft.Row(
+            controls=[
+                ft.IconButton(icon=ft.icons.MENU, icon_color=ft.colors.WHITE),
+                ft.Container(expand=True),
+            ]
+        ), bgcolor=bgcolor
+    )
     text = ft.Text("Hello, Flet!")
     textfield = ft.TextField(hint_text="enter text")
 
@@ -29,8 +37,6 @@ def main(page: ft.Page):
     )
     page.add(ft.SafeArea(ft.Row(controls=[textfield])))
     page.add(ft.SafeArea(ft.TextButton(text="Change Text", on_click=change)))
-    page.add(ft.SafeArea(ft.Row(controls=[])))
-    page.bottom_appbar = ft.BottomAppBar(content=ft.Row(controls=[ft.IconButton(icon=ft.icons.MENU,icon_color=ft.colors.WHITE),ft.Container(expand=True)]))
 
 
 ft.app(main)
