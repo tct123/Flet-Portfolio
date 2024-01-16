@@ -1,7 +1,7 @@
 import flet as ft
 import colors as cs
 
-bgcolor = cs.NONE
+bgcolor = cs.RED
 
 
 def main(page: ft.Page):
