@@ -29,7 +29,8 @@ def main(page: ft.Page):
     )
     page.add(ft.SafeArea(ft.Row(controls=[textfield])))
     page.add(ft.SafeArea(ft.TextButton(text="Change Text", on_click=change)))
-    page.add(ft.SafeArea(ft.Row(controls=[ft.TextButton(text="Github"),ft.TextButton(text="Github")])))
+    page.add(ft.SafeArea(ft.Row(controls=[])))
+    page.bottom_appbar = ft.BottomAppBar(content=ft.Row(controls=[ft.IconButton(icon=ft.icons.MENU,icon_color=ft.colors.WHITE),ft.Container(expand=True)]))
 
 
 ft.app(main)
