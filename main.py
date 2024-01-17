@@ -19,8 +19,8 @@ def main(page: ft.Page):
         actions=[
             ft.PopupMenuButton(
                 items=[
-                    ft.PopupMenuItem(text="Github", on_click=opengithub),
-                    ft.PopupMenuItem(text="YouTube", on_click=openyt1),
+                    ft.PopupMenuItem(icon=ft.icons.CLOUD,text="Github", on_click=opengithub),
+                    ft.PopupMenuItem(icon=ft.icons.PLAY_CIRCLE,text="YouTube", on_click=openyt1),
                 ]
             )
         ],
