@@ -6,7 +6,7 @@ bgcolor = cs.RED
 
 def main(page: ft.Page):
     page.title = "Portfolio"
-    page.bgcolor = bgcolor
+    #page.bgcolor = bgcolor
     page.appbar = ft.AppBar(title=ft.Text(page.title), bgcolor=bgcolor)
     page.bottom_appbar = ft.BottomAppBar(
         content=ft.Row(
