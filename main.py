@@ -10,6 +10,7 @@ def main(page: ft.Page):
     # page.bgcolor = bgcolor
     # music = ft.Audio(src="mozart.mp3", autoplay=True)
     # page.overlay.append(music)
+    page.scroll = True
 
     def opengithub(e):
         ob.openweb(e=e, page=page, url="https://github.com/tct123")
