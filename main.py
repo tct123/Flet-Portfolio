@@ -5,7 +5,7 @@ import os
 
 bgcolor = cs.RED
 
-print(os.getcwd())
+
 
 def main(page: ft.Page):
     page.title = "Portfolio"
