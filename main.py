@@ -1,4 +1,8 @@
 import flet as ft
+from flet_contrib.color_picker import *
+from flet_contrib.flexible_slider import *
+from flet_contrib.shimmer import *
+from flet_contrib.vertical_splitter import *
 import colors as cs
 import openweb as ob
 import os
@@ -13,6 +17,7 @@ def main(page: ft.Page):
     music = ft.Audio(src=f"{os.getcwd()}/assets/mozart.mp3", autoplay=True)
     page.overlay.append(music)
     page.scroll = True
+    
 
     def opengithub(e):
         ob.openweb(e=e, page=page, url="https://github.com/tct123")
@@ -22,7 +27,9 @@ def main(page: ft.Page):
 
     page.appbar = ft.AppBar(
         title=ft.Text(page.title),
+        center_title=True,
         bgcolor=bgcolor,
+        adaptive=True,
         actions=[
             ft.PopupMenuButton(
                 items=[
@@ -43,7 +50,9 @@ def main(page: ft.Page):
                 ft.Container(expand=True),
             ]
         ),
+        
         bgcolor=bgcolor,
+        
     )
     text = ft.Text("Hello, Flet!")
     textfield = ft.TextField(hint_text="enter text")
@@ -60,6 +69,7 @@ def main(page: ft.Page):
     )
     page.add(ft.SafeArea(ft.Row(controls=[textfield])))
     page.add(ft.SafeArea(ft.TextButton(text="Change Text", on_click=change)))
+    page.add(ft.SafeArea(ft.ElevatedButton(text="Test",adaptive=True)))
 
 
 ft.app(target=main)
