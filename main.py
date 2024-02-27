@@ -1,15 +1,17 @@
 import flet as ft
 import colors as cs
 import openweb as ob
+import os
 
 bgcolor = cs.RED
 
+print(os.getcwd())
 
 def main(page: ft.Page):
     page.title = "Portfolio"
     # page.bgcolor = bgcolor
-    # music = ft.Audio(src="mozart.mp3", autoplay=True)
-    # page.overlay.append(music)
+    music = ft.Audio(src=f"{os.getcwd()}/assets/mozart.mp3", autoplay=True)
+    page.overlay.append(music)
     page.scroll = True
 
     def opengithub(e):
