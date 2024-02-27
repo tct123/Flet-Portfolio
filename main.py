@@ -69,4 +69,4 @@ def main(page: ft.Page):
     page.add(ft.SafeArea(ft.TextButton(text="Change Text", on_click=change)))
 
 
-ft.app(main)
+ft.app(target=main)
