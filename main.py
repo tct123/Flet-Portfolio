@@ -8,8 +8,8 @@ bgcolor = cs.RED
 def main(page: ft.Page):
     page.title = "Portfolio"
     # page.bgcolor = bgcolor
-    music = ft.Audio(src="mozart.mp3", autoplay=True)
-    page.overlay.append(music)
+    # music = ft.Audio(src="mozart.mp3", autoplay=True)
+    # page.overlay.append(music)
 
     def opengithub(e):
         ob.openweb(e=e, page=page, url="https://github.com/tct123")
