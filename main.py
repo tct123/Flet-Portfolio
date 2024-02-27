@@ -60,6 +60,7 @@ def main(page: ft.Page):
             ft.Row(
                 controls=[
                     text,
+                    ft.IconButton(icon=ft.icons.PLAY_ARROW)
                 ]
             )
         )
