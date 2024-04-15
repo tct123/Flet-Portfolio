@@ -68,8 +68,13 @@ def main(page: ft.Page):
     page.add(ft.SafeArea(ft.Row(controls=[textfield])))
     page.add(ft.SafeArea(ft.TextButton(text="Change Text", on_click=change)))
     page.add(ft.SafeArea(ft.ElevatedButton(text="Test", adaptive=True)))
+    page.add(ft.WebView(url="assets/index.html"))
     for i in btnlist:
-        page.add(ft.SafeArea(ft.TextButton(f"test {i}"),))
+        page.add(
+            ft.SafeArea(
+                ft.TextButton(f"test {i}"),
+            )
+        )
 
 
 ft.app(target=main)
