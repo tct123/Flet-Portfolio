@@ -15,7 +15,7 @@ def main(page: ft.Page):
     page.title = "Portfolio"
     page.adaptive = True
     # page.bgcolor = bgcolor
-    music = ft.Audio(src=f"{os.getcwd()}/assets/mozart.mp3", autoplay=True)
+    music = ft.Audio(src=f"{os.getcwd()}/assets/mozart.mp3")
     page.overlay.append(music)
     page.scroll = True
 
@@ -61,9 +61,17 @@ def main(page: ft.Page):
             pass
         else:
             page.update()
+    def play(e):
+        playing = False
+        if playing == False:
+            music.play()
+            playing = True
+        else:
+            music.pause()
+            playing = False
 
     page.add(
-        ft.SafeArea(ft.Row(controls=[text, ft.IconButton(icon=ft.icons.PLAY_ARROW)]))
+        ft.SafeArea(ft.Row(controls=[text, ft.IconButton(icon=ft.icons.PLAY_ARROW,on_click=play)]))
     )
     page.add(
         ft.SafeArea(
