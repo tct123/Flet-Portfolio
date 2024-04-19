@@ -62,6 +62,7 @@ def main(page: ft.Page):
             pass
         else:
             page.update()
+
     def play(e):
         if playing == False:
             music.play()
@@ -71,7 +72,11 @@ def main(page: ft.Page):
             playing = False
 
     page.add(
-        ft.SafeArea(ft.Row(controls=[text, ft.IconButton(icon=ft.icons.PLAY_ARROW,on_click=play)]))
+        ft.SafeArea(
+            ft.Row(
+                controls=[text, ft.IconButton(icon=ft.icons.PLAY_ARROW, on_click=play)]
+            )
+        )
     )
     page.add(
         ft.SafeArea(
