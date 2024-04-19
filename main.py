@@ -12,6 +12,7 @@ btnlist = ["1", "2"]
 
 
 def main(page: ft.Page):
+    playing = False
     page.title = "Portfolio"
     page.adaptive = True
     # page.bgcolor = bgcolor
@@ -62,7 +63,6 @@ def main(page: ft.Page):
         else:
             page.update()
     def play(e):
-        playing = False
         if playing == False:
             music.play()
             playing = True
