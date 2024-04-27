@@ -12,6 +12,7 @@ btnlist = ["1", "2"]
 
 
 def main(page: ft.Page):
+    global playing
     playing = False
     page.title = "Portfolio"
     page.adaptive = True
