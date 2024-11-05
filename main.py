@@ -16,7 +16,7 @@ def main(page: ft.Page):
     playing = False
     page.title = "Portfolio"
     page.adaptive = True
-    # page.bgcolor = bgcolor
+    page.bgcolor = bgcolor
     music = ft.Audio(src=f"{os.getcwd()}/assets/mozart.mp3")
     page.overlay.append(music)
     page.scroll = True
