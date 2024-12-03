@@ -10,20 +10,21 @@ dependencies = ["flet==0.25.1", "flet-contrib"]
 [tool.flet]
 # org name in reverse domain name notation, e.g. "com.mycompany".
 # Combined with project.name to build bundle ID for iOS and Android apps
-org = "com.mycompany"
+org = "de.cmg"
 
 # project display name that is used as an app title on Android and iOS home screens,
 # shown in window titles and about app dialogs on desktop.
-product = "flet-portfolio"
+product = "Flet Portfolio"
 
 # company name to display in about app dialogs
-company = "Flet"
+company = "Creative Media Group"
 
 # copyright text to display in about app dialogs
-copyright = "Copyright (C) 2024 by Flet"
+copyright = "Copyright (C) 2024 by Creative Media Group"
 
 [tool.flet.app]
 path = "src"
 [tool.flet.deep_linking]
-scheme = "https"      # --deep-linking-scheme
-host = "mydomain.com" # --deep-linking-host
+scheme = "https"
+host = "github.com"
+flutter.dependencies = ["flet_video", "flet_audio"]
