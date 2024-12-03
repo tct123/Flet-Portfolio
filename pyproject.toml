@@ -24,3 +24,6 @@ copyright = "Copyright (C) 2024 by Flet"
 
 [tool.flet.app]
 path = "src"
+[tool.flet.deep_linking]
+scheme = "https"      # --deep-linking-scheme
+host = "mydomain.com" # --deep-linking-host
