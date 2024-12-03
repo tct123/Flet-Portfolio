@@ -1,8 +1,8 @@
 import flet as ft
-from flet_contrib.color_picker import *
-from flet_contrib.flexible_slider import *
-from flet_contrib.shimmer import *
-from flet_contrib.vertical_splitter import *
+# from flet_contrib.color_picker import *
+# from flet_contrib.flexible_slider import *
+# from flet_contrib.shimmer import *
+# from flet_contrib.vertical_splitter import *
 import colors as cs
 import openweb as ob
 import os
