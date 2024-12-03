@@ -1,4 +1,5 @@
 import flet as ft
+
 # from flet_contrib.color_picker import *
 # from flet_contrib.flexible_slider import *
 # from flet_contrib.shimmer import *
@@ -36,10 +37,10 @@ def main(page: ft.Page):
             ft.PopupMenuButton(
                 items=[
                     ft.PopupMenuItem(
-                        icon=ft.icons.CLOUD, text="Github", on_click=opengithub
+                        icon=ft.Icons.CLOUD, text="Github", on_click=opengithub
                     ),
                     ft.PopupMenuItem(
-                        icon=ft.icons.PLAY_CIRCLE, text="YouTube", on_click=openyt1
+                        icon=ft.Icons.PLAY_CIRCLE, text="YouTube", on_click=openyt1
                     ),
                 ]
             )
@@ -48,7 +49,7 @@ def main(page: ft.Page):
     page.bottom_appbar = ft.BottomAppBar(
         content=ft.Row(
             controls=[
-                ft.IconButton(icon=ft.icons.MENU, icon_color=ft.colors.WHITE),
+                ft.IconButton(icon=ft.Icons.MENU, icon_color=ft.Colors.WHITE),
                 ft.Container(expand=True),
             ]
         ),
@@ -75,7 +76,7 @@ def main(page: ft.Page):
     page.add(
         ft.SafeArea(
             ft.Row(
-                controls=[text, ft.IconButton(icon=ft.icons.PLAY_ARROW, on_click=play)]
+                controls=[text, ft.IconButton(icon=ft.Icons.PLAY_ARROW, on_click=play)]
             )
         )
     )
