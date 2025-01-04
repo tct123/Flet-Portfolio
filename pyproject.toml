@@ -30,4 +30,6 @@ path = "src"
 [tool.flet.deep_linking]
 scheme = "https"
 host = "github.com"
-flutter.dependencies = ["flet_video", "flet_audio"]
+[tool.flet.flutter.dependencies]
+flet_video = "any"
+flet_audio = "any"
