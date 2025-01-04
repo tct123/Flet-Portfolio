@@ -22,6 +22,9 @@ company = "Creative Media Group"
 # copyright text to display in about app dialogs
 copyright = "Copyright (C) 2024 by Creative Media Group"
 
+compile.app = false      # --compile-app
+compile.packages = false # --compile-packages
+compile.cleanup = false  # --cleanup-on-compile
 [tool.flet.app]
 path = "src"
 [tool.flet.deep_linking]
