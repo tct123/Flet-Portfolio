@@ -11,14 +11,13 @@ import os
 bgcolor = cs.RED
 btnlist = ["1", "2"]
 
-
 def main(page: ft.Page):
     global playing
     playing = False
     page.title = "Portfolio"
     page.adaptive = True
     page.bgcolor = bgcolor
-    music = ft.Audio(src=f"{os.getcwd()}/assets/mozart.mp3")
+    music = ft.Audio(src="mozart.mp3")
     page.overlay.append(music)
     page.scroll = True
 
@@ -66,6 +65,7 @@ def main(page: ft.Page):
             page.update()
 
     def play(e):
+        global playing
         if playing == False:
             music.play()
             playing = True
