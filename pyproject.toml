@@ -27,9 +27,4 @@ compile.packages = false # --compile-packages
 compile.cleanup = false  # --cleanup-on-compile
 [tool.flet.app]
 path = "src"
-[tool.flet.deep_linking]
-scheme = "https"
-host = "github.com"
-[tool.flet.flutter.dependencies]
-flet_video = "any"
-flet_audio = "any"
+flutter.dependencies = ["flet_video", "flet_audio"]
