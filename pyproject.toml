@@ -27,4 +27,3 @@ compile.packages = false # --compile-packages
 compile.cleanup = false  # --cleanup-on-compile
 [tool.flet.app]
 path = "src"
-flutter.dependencies = ["flet_video", "flet_audio"]
