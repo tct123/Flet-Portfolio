@@ -1,12 +1,8 @@
 import flet as ft
-
-# from flet_contrib.color_picker import *
-# from flet_contrib.flexible_slider import *
-# from flet_contrib.shimmer import *
-# from flet_contrib.vertical_splitter import *
 import colors as cs
 import openweb as ob
 import os
+import flet_audio as fta
 
 bgcolor = cs.RED
 btnlist = ["1", "2"]
@@ -17,7 +13,7 @@ def main(page: ft.Page):
     page.title = "Portfolio"
     page.adaptive = True
     page.bgcolor = bgcolor
-    music = ft.Audio(src="mozart.mp3")
+    music = fta.Audio(src="mozart.mp3")
     page.overlay.append(music)
     page.scroll = True
 
