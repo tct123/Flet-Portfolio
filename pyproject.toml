@@ -2,11 +2,14 @@
 name = "flet-portfolio"
 version = "0.1.0"
 description = ""
-license = { file = "LICENSE" }
 readme = "README.md"
-requires-python = ">=3.8"
-dependencies = ["flet==0.26.0", "flet-audio==0.1.0"]
-
+requires-python = ">=3.9"
+authors = [
+    { name = "tct123", email = "tct1234@protonmail.com" }
+]
+dependencies = [
+  "flet==0.26.0"
+]
 
 [tool.flet]
 # org name in reverse domain name notation, e.g. "com.mycompany".
@@ -21,10 +24,18 @@ product = "Flet Portfolio"
 company = "Creative Media Group"
 
 # copyright text to display in about app dialogs
-copyright = "Copyright (C) 2024 by Creative Media Group"
+copyright = "Copyright (C) 2025 by Creative Media Group"
 
-compile.app = false      # --compile-app
-compile.packages = false # --compile-packages
-compile.cleanup = false  # --cleanup-on-compile
 [tool.flet.app]
 path = "src"
+
+[tool.uv]
+dev-dependencies = [
+    "flet[all]==0.26.0",
+]
+
+[tool.poetry]
+package-mode = false
+
+[tool.poetry.group.dev.dependencies]
+flet = {extras = ["all"], version = "0.26.0"}
