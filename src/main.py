@@ -44,6 +44,7 @@ def main(page: ft.Page):
         bgcolor=bgcolor,
         actions=[
             ft.PopupMenuButton(
+                bgcolor=bgcolor,
                 items=[
                     ft.PopupMenuItem(
                         icon=ft.Icons.CLOUD, text="Github", on_click=opengithub
@@ -51,7 +52,7 @@ def main(page: ft.Page):
                     ft.PopupMenuItem(
                         icon=ft.Icons.PLAY_CIRCLE, text="YouTube", on_click=openyt1
                     ),
-                ]
+                ],
             )
         ],
     )
