@@ -14,7 +14,7 @@ def main(page: ft.Page):
     page.title = "Portfolio"
     page.decoration = ft.BoxDecoration(
         image=ft.DecorationImage(
-            src="https://images.unsplash.com/photo-1547721064-da6cfb341d50",
+            src="images/picture1.jpg",
             fit=ft.ImageFit.COVER,
             opacity=0.2,
         ),
