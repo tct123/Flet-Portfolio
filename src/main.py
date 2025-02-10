@@ -4,14 +4,27 @@ import openweb as ob
 import os
 import flet_audio as fta
 
-bgcolor = cs.RED
 btnlist = ["1", "2"]
 
 
 def main(page: ft.Page):
+    bgcolor = ft.Colors.TRANSPARENT
     global playing
     playing = False
     page.title = "Portfolio"
+    page.decoration = ft.BoxDecoration(
+        image=ft.DecorationImage(
+            src="https://images.unsplash.com/photo-1547721064-da6cfb341d50",
+            fit=ft.ImageFit.COVER,
+            opacity=0.2,
+        ),
+        gradient=ft.LinearGradient(
+            colors=[ft.Colors.RED, ft.Colors.BLUE],
+            stops=[0, 1],
+            begin=ft.alignment.top_left,
+            end=ft.alignment.bottom_right,
+        ),
+    )
     page.adaptive = True
     page.bgcolor = bgcolor
     music = fta.Audio(src="mozart.mp3")
@@ -27,8 +40,8 @@ def main(page: ft.Page):
     page.appbar = ft.AppBar(
         title=ft.Text(page.title),
         center_title=True,
-        bgcolor=bgcolor,
         adaptive=True,
+        bgcolor=bgcolor,
         actions=[
             ft.PopupMenuButton(
                 items=[
@@ -43,13 +56,13 @@ def main(page: ft.Page):
         ],
     )
     page.bottom_appbar = ft.BottomAppBar(
+        bgcolor=bgcolor,
         content=ft.Row(
             controls=[
                 ft.IconButton(icon=ft.Icons.MENU, icon_color=ft.Colors.WHITE),
                 ft.Container(expand=True),
             ]
         ),
-        bgcolor=bgcolor,
     )
     text = ft.Text("Hello, Flet!")
     textfield = ft.TextField(hint_text="enter text")
