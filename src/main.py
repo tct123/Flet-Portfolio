@@ -11,7 +11,7 @@ def main(page: ft.Page):
     bgcolor = ft.Colors.TRANSPARENT
     global playing
     playing = False
-    page.title = "Portfolio"
+    page.title = "Flet Portfolio"
     page.decoration = ft.BoxDecoration(
         image=ft.DecorationImage(
             src="images/picture1.jpg",
