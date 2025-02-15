@@ -1,9 +1,35 @@
 import flet as ft
 import colors as cs
 import os
-from infos import myappbar
 from background import mydecoration
 
+def myappbar(title, bgcolor, items: list):
+    return ft.AppBar(
+        title=ft.Text(title),
+        center_title=True,
+        adaptive=True,
+        bgcolor=bgcolor,
+        actions=[
+            ft.PopupMenuButton(
+                bgcolor=bgcolor,
+                items=items,
+            )
+        ],
+    )
+def mydecoration():
+    return ft.BoxDecoration(
+        image=ft.DecorationImage(
+            src="images/picture1.jpg",
+            fit=ft.ImageFit.COVER,
+            opacity=0.2,
+        ),
+        gradient=ft.LinearGradient(
+            colors=[ft.Colors.RED, ft.Colors.BLUE],
+            stops=[0, 1],
+            begin=ft.alignment.top_left,
+            end=ft.alignment.bottom_right,
+        ),
+    )
 
 def mycontainer(text, width, on_click):  # page.width
     return ft.Container(
@@ -16,68 +42,8 @@ def mycontainer(text, width, on_click):  # page.width
     )
 
 
-def main(page: ft.Page):
-    page.go("/")
+def main(page:ft.Page):
     page.title = "Flet Portfolio"
-    bgcolor = ft.Colors.TRANSPARENT
-    page.vertical_alignment = ft.MainAxisAlignment.CENTER
-    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
-    page.scroll = True
-
-    def route_change(e: ft.RouteChangeEvent):
-        page.views.clear()
-        page.views.append(
-            ft.View(
-                route="/",
-                appbar=myappbar(
-                    title="Flet Portfolio",
-                    bgcolor=bgcolor,
-                    items=[
-                        ft.PopupMenuItem(
-                            icon=ft.Icons.CLOUD,
-                            text="GitHub",
-                            on_click=lambda _: page.launch_url(
-                                url="https://github.com/tct123"
-                            ),
-                        ),
-                        ft.PopupMenuItem(
-                            icon=ft.Icons.PLAY_CIRCLE,
-                            text="YouTube",
-                            on_click=lambda _: page.launch_url(
-                                url="https://youtube.com/@tc-diy"
-                            ),
-                        ),
-                    ],
-                ),
-                decoration=mydecoration(),
-                controls=[
-                    ft.Column(
-                        controls=[
-                            mycontainer(
-                                text="Simple hello World",
-                                width=page.width,
-                                on_click=lambda _: page.go("/hello"),
-                            )
-                        ]
-                    )
-                ],
-                vertical_alignment=ft.MainAxisAlignment.CENTER,
-                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-            )
-        )
-        if page.route == "/hello":
-            page.views.append(
-                ft.View(
-                    route="/hello",
-                    appbar=myappbar(page=page),
-                    controls=[ft.Column(controls=[ft.Text("Hello")])],
-                    vertical_alignment=ft.MainAxisAlignment.CENTER,
-                    horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                )
-            )
-
-    page.on_route_change = route_change
-    page.go(page.route)
 
 
 ft.app(target=main)
