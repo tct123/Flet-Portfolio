@@ -7,8 +7,6 @@ from background import mydecoration
 
 def main(page: ft.Page):
     bgcolor = ft.Colors.TRANSPARENT
-    global playing
-    playing = False
     page.title = "Flet Portfolio"
     page.decoration = mydecoration()
     page.adaptive = True
