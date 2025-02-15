@@ -4,14 +4,16 @@ from background import mydecoration
 
 
 def main(page: ft.Page):
+    bgcolor=ft.Colors.TRANSPARENT
     page.title = "Flet Portfolio"
-    page.decoration = mydecoration()
     def route_change(e):
         page.views.clear()
 
         if page.route == "/":
             page.views.append(
                 ft.View(
+                    decoration=mydecoration(),
+                    bgcolor=bgcolor,
                     route="/",
                     appbar=myappbar(page=page),
                     controls=[
@@ -25,6 +27,8 @@ def main(page: ft.Page):
         elif page.route == "/about":
             page.views.append(
                 ft.View(
+                    decoration=mydecoration(),
+                    bgcolor=bgcolor,
                     route="/about",
                     appbar=myappbar(page=page),
                     controls=[
