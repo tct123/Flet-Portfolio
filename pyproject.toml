@@ -36,4 +36,4 @@ flet = { extras = ["all"], version = "0.26.0" }
 
 [tool.flet.deep_linking]
 scheme = "https"      # --deep-linking-scheme
-host = "mydomain.com" # --deep-linking-host
+host = "tct123.github.io" # --deep-linking-host
