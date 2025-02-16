@@ -35,5 +35,5 @@ package-mode = false
 flet = { extras = ["all"], version = "0.26.0" }
 
 [tool.flet.deep_linking]
-scheme = "https"      # --deep-linking-scheme
+scheme = "https"          # --deep-linking-scheme
 host = "tct123.github.io" # --deep-linking-host
