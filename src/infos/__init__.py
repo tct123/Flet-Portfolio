@@ -2,7 +2,7 @@ import flet as ft
 
 
 def myappbar(page):
-    bgcolor=ft.Colors.TRANSPARENT
+    bgcolor = ft.Colors.TRANSPARENT
     return ft.AppBar(
         title=ft.Text(page.title),
         center_title=True,

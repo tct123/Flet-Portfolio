@@ -4,8 +4,9 @@ from background import mydecoration
 
 
 def main(page: ft.Page):
-    bgcolor=ft.Colors.TRANSPARENT
+    bgcolor = ft.Colors.TRANSPARENT
     page.title = "Flet Portfolio"
+
     def route_change(e):
         page.views.clear()
 
@@ -17,10 +18,17 @@ def main(page: ft.Page):
                     route="/",
                     appbar=myappbar(page=page),
                     controls=[
-                        ft.Text("Home Seite"),
-                        ft.ElevatedButton(
-                            "Gehe zu /about", on_click=lambda _: page.go("/about")
-                        ),
+                        ft.SafeArea(
+                            ft.Column(
+                                controls=[
+                                    ft.Text("Home Seite"),
+                                    ft.ElevatedButton(
+                                        "Gehe zu /about",
+                                        on_click=lambda _: page.go("/about"),
+                                    ),
+                                ]
+                            )
+                        )
                     ],
                 )
             )
@@ -32,8 +40,16 @@ def main(page: ft.Page):
                     route="/about",
                     appbar=myappbar(page=page),
                     controls=[
-                        ft.Text("Über uns"),
-                        ft.ElevatedButton("Zurück", on_click=lambda _: page.go("/")),
+                        ft.SafeArea(
+                            ft.Column(
+                                [
+                                    ft.Text("Über uns"),
+                                    ft.ElevatedButton(
+                                        "Zurück", on_click=lambda _: page.go("/")
+                                    ),
+                                ]
+                            )
+                        )
                     ],
                 )
             )
