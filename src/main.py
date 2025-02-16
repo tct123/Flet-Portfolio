@@ -3,6 +3,18 @@ from infos import myappbar
 from background import mydecoration
 
 
+def mybutton(text, width, on_click):
+    return ft.Container(
+        content=ft.Text(text, size=20),
+        height=50,
+        width=width,
+        on_click=on_click,
+        bgcolor=ft.Colors.RED,
+        border_radius=10,
+        alignment=ft.alignment.center,
+    )
+
+
 def main(page: ft.Page):
     bgcolor = ft.Colors.TRANSPARENT
     page.title = "Flet Portfolio"
@@ -24,10 +36,21 @@ def main(page: ft.Page):
                             ft.Column(
                                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                                 controls=[
-                                    ft.Text("Home Seite"),
-                                    ft.ElevatedButton(
-                                        "Gehe zu /about",
-                                        on_click=lambda _: page.go("/about"),
+                                    ft.Column(
+                                        controls=[
+                                            ft.Text(
+                                                "Hello. This is my Portfolio", size=100
+                                            )
+                                        ]
+                                    ),
+                                    ft.Column(
+                                        controls=[
+                                            mybutton(
+                                                text="Continue",
+                                                on_click=lambda _: page.go("/about"),
+                                                width=page.width,
+                                            )
+                                        ],
                                     ),
                                 ],
                             )
@@ -38,6 +61,8 @@ def main(page: ft.Page):
         elif page.route == "/about":
             page.views.append(
                 ft.View(
+                    horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                    vertical_alignment=ft.MainAxisAlignment.CENTER,
                     decoration=mydecoration(),
                     bgcolor=bgcolor,
                     route="/about",
@@ -47,8 +72,10 @@ def main(page: ft.Page):
                             ft.Column(
                                 [
                                     ft.Text("Über uns"),
-                                    ft.ElevatedButton(
-                                        "Zurück", on_click=lambda _: page.go("/")
+                                    mybutton(
+                                        text="Zurück",
+                                        on_click=lambda _: page.go("/"),
+                                        width=page.width,
                                     ),
                                 ]
                             )
