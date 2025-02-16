@@ -47,7 +47,7 @@ def main(page: ft.Page):
                                         controls=[
                                             mybutton(
                                                 text="Continue",
-                                                on_click=lambda _: page.go("/about"),
+                                                on_click=lambda _: page.go("/portfolio"),
                                                 width=page.width,
                                             )
                                         ],
@@ -58,14 +58,14 @@ def main(page: ft.Page):
                     ],
                 )
             )
-        elif page.route == "/about":
+        elif page.route == "/portfolio":
             page.views.append(
                 ft.View(
                     horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                     vertical_alignment=ft.MainAxisAlignment.CENTER,
                     decoration=mydecoration(),
                     bgcolor=bgcolor,
-                    route="/about",
+                    route="/portfolio",
                     appbar=myappbar(page=page),
                     controls=[
                         ft.SafeArea(
