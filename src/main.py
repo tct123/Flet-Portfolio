@@ -13,6 +13,8 @@ def main(page: ft.Page):
         if page.route == "/":
             page.views.append(
                 ft.View(
+                    horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                    vertical_alignment=ft.MainAxisAlignment.CENTER,
                     decoration=mydecoration(),
                     bgcolor=bgcolor,
                     route="/",
