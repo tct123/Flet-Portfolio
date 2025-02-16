@@ -22,13 +22,14 @@ def main(page: ft.Page):
                     controls=[
                         ft.SafeArea(
                             ft.Column(
+                                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                                 controls=[
                                     ft.Text("Home Seite"),
                                     ft.ElevatedButton(
                                         "Gehe zu /about",
                                         on_click=lambda _: page.go("/about"),
                                     ),
-                                ]
+                                ],
                             )
                         )
                     ],
