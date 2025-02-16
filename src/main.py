@@ -49,7 +49,7 @@ def main(page: ft.Page):
                                                 text="Continue",
                                                 on_click=lambda _: page.go("/portfolio"),
                                                 width=page.width,
-                                            )
+                                            ),
                                         ],
                                     ),
                                 ],
