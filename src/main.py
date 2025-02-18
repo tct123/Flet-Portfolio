@@ -36,19 +36,20 @@ def main(page: ft.Page):
                         ft.SafeArea(
                             ft.Column(
                                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                                
                                 controls=[
                                     ft.Text(
                                         "Hello. This is my Portfolio.",
                                         size=100,
                                         text_align=ft.TextAlign.CENTER,
-                                    ),
+                                    ),ft.Container(expand=True),
                                     ft.Container(
                                         expand=True,
                                         content=mybutton(
                                             text="Continue",
                                             on_click=lambda _: page.go("/portfolio"),
                                         ),
-                                        alignment=ft.alignment.bottom_center,
+                                        alignment=ft.alignment.center,
                                     ),
                                 ],
                                 expand=True,
