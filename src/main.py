@@ -3,21 +3,22 @@ from infos import myappbar
 from background import mydecoration
 
 
-def mybutton(text, width, on_click):
+def mybutton(text, on_click):
     return ft.Container(
         content=ft.Text(text, size=20),
         height=50,
-        width=width,
         on_click=on_click,
         bgcolor=ft.Colors.RED,
         border_radius=10,
         alignment=ft.alignment.center,
+        expand=True,
     )
 
 
 def main(page: ft.Page):
     bgcolor = ft.Colors.TRANSPARENT
     page.title = "Flet Portfolio"
+
     def route_change(e):
         page.views.clear()
 
@@ -36,23 +37,21 @@ def main(page: ft.Page):
                             ft.Column(
                                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                                 controls=[
-                                    ft.Column(
-                                        controls=[
-                                            ft.Text(
-                                                "Hello. This is my Portfolio.", size=100
-                                            )
-                                        ]
+                                    ft.Text(
+                                        "Hello. This is my Portfolio.",
+                                        size=100,
+                                        text_align=ft.TextAlign.CENTER,
                                     ),
-                                    ft.Column(
-                                        controls=[
-                                            mybutton(
-                                                text="Continue",
-                                                on_click=lambda _: page.go("/portfolio"),
-                                                width=page.width,
-                                            ),
-                                        ],
+                                    ft.Container(
+                                        expand=True,
+                                        content=mybutton(
+                                            text="Continue",
+                                            on_click=lambda _: page.go("/portfolio"),
+                                        ),
+                                        alignment=ft.alignment.bottom_center,
                                     ),
                                 ],
+                                expand=True,
                             )
                         )
                     ],
@@ -75,7 +74,6 @@ def main(page: ft.Page):
                                     mybutton(
                                         text="Zurück",
                                         on_click=lambda _: page.go("/"),
-                                        width=page.width,
                                     ),
                                 ]
                             )
