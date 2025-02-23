@@ -5,7 +5,7 @@ description = ""
 readme = "README.md"
 requires-python = ">=3.9"
 authors = [{ name = "tct123", email = "tct1234@protonmail.com" }]
-dependencies = ["flet-audio", "flet==0.26.0"]
+dependencies = ["flet-audio", "flet==0.27.1"]
 
 [tool.flet]
 # org name in reverse domain name notation, e.g. "com.mycompany".
@@ -29,13 +29,13 @@ copyright = "Copyright (C) 2025 by Creative Media Group"
 path = "src"
 
 [tool.uv]
-dev-dependencies = ["flet[all]==0.26.0"]
+dev-dependencies = ["flet[all]==0.27.1"]
 
 [tool.poetry]
 package-mode = false
 
 [tool.poetry.group.dev.dependencies]
-flet = { extras = ["all"], version = "0.26.0" }
+flet = { extras = ["all"], version = "0.27.1" }
 
 [tool.flet.deep_linking]
 scheme = "https"          # --deep-linking-scheme
