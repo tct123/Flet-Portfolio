@@ -42,7 +42,7 @@ def main(page: ft.Page):
                                             "Hello. This is my Portfolio.",
                                             size=100,
                                             text_align=ft.TextAlign.CENTER,
-                                        )
+                                        ),
                                     ),
                                     ft.Container(
                                         content=mybutton(
