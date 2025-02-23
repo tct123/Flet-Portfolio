@@ -37,6 +37,7 @@ def main(page: ft.Page):
                             ft.Column(
                                 controls=[
                                     ft.Container(
+                                        alignment=ft.alignment.center,
                                         content=ft.Text(
                                             "Hello. This is my Portfolio.",
                                             size=100,
