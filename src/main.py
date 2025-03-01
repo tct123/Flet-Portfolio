@@ -1,6 +1,7 @@
 import flet as ft
 from infos import myappbar
 from background import mydecoration
+from mylocale import tr
 
 
 def mybutton(text, on_click):
@@ -16,6 +17,7 @@ def mybutton(text, on_click):
 
 
 def main(page: ft.Page):
+    file = "localisation/localisation.csv"
     bgcolor = ft.Colors.TRANSPARENT
     page.title = "Flet Portfolio"
 
