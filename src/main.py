@@ -1,7 +1,7 @@
 import flet as ft
 from infos import myappbar
 from background import mydecoration
-from localisation import HELLOMSG
+from localisation import *
 
 
 def mybutton(text, on_click):
@@ -47,7 +47,7 @@ def main(page: ft.Page):
                                     ),
                                     ft.Container(
                                         content=mybutton(
-                                            text="Continue",
+                                            text=CONTNUEBTN,
                                             on_click=lambda _: page.go("/portfolio"),
                                         ),
                                         alignment=ft.alignment.center,
