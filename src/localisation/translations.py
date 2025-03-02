@@ -13,3 +13,8 @@ HELLOMSG = tr(
     target_key="HELLOMSG",
     langcode=langcode,
 )
+CONTNUEBTN = tr(
+    csv_file=trfile,
+    target_key="CONTNUEBTN",
+    langcode=langcode,
+)
