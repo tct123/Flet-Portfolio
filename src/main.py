@@ -5,7 +5,15 @@ from localisation import *
 
 
 def mybutton(text, on_click):
-    return ft.Container(
+    def hover(e):
+        if e.data == "true":
+            e.control.opacity = 0.5
+            e.control.update()
+        else:
+            e.control.opacity = 1
+            e.control.update()
+
+    container = ft.Container(
         content=ft.Text(text, size=20),
         height=50,
         on_click=on_click,
@@ -13,7 +21,10 @@ def mybutton(text, on_click):
         border_radius=10,
         alignment=ft.alignment.center,
         expand=True,
+        on_hover=hover,
     )
+
+    return container
 
 
 def main(page: ft.Page):
@@ -40,14 +51,14 @@ def main(page: ft.Page):
                                     ft.Container(
                                         alignment=ft.alignment.center,
                                         content=ft.Text(
-                                            HELLOMSG,
+                                            HELLOMSG(page=page),
                                             size=100,
                                             text_align=ft.TextAlign.CENTER,
                                         ),
                                     ),
                                     ft.Container(
                                         content=mybutton(
-                                            text=CONTNUEBTN,
+                                            text=CONTNUEBTN(page=page),
                                             on_click=lambda _: page.go("/portfolio"),
                                         ),
                                         alignment=ft.alignment.center,

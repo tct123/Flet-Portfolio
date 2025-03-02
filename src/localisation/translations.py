@@ -7,7 +7,7 @@ import flet as ft
 trfile = f"{os.path.dirname(__file__)}/localisation.csv"
 
 
-def HELLOMSG(page: ft.Page):
+def HELLOMSG(page):
     myplatfom = str(page.platform)
     langcode = str(locale(platform=myplatfom)).split("_")[0]
     region = str(locale(platform=myplatfom)).split("_")[1]
@@ -18,7 +18,7 @@ def HELLOMSG(page: ft.Page):
     )
 
 
-def CONTNUEBTN(page: ft.Page):
+def CONTNUEBTN(page):
     myplatfom = str(page.platform)
     langcode = str(locale(platform=myplatfom)).split("_")[0]
     region = str(locale(platform=myplatfom)).split("_")[1]
