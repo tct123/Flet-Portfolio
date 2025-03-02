@@ -17,7 +17,7 @@ def mybutton(text, on_click):
 
 
 def main(page: ft.Page):
-    file = "assets/localisation.csv"
+    file = "locale/localisation.csv"
     bgcolor = ft.Colors.TRANSPARENT
     page.title = "Flet Portfolio"
 
