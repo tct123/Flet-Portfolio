@@ -1,5 +1,4 @@
 import os
-import platform
 from mylocale import tr
 from flet_localisation import locale
 import flet as ft
