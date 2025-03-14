@@ -2,6 +2,7 @@ import flet as ft
 from infos import myappbar
 from background import mydecoration
 from localisation import *
+import flet_flashlight as ffl
 
 
 def mybutton(text, on_click):
@@ -30,6 +31,8 @@ def mybutton(text, on_click):
 def main(page: ft.Page):
     bgcolor = ft.Colors.TRANSPARENT
     page.title = "Flet Portfolio"
+    flashlight = ffl.Flashlight()
+    page.overlay.append(flashlight)
     def route_change(e):
         page.views.clear()
         if page.route == "/":
@@ -81,7 +84,36 @@ def main(page: ft.Page):
                         ft.SafeArea(
                             ft.Column(
                                 [
+                                    ft.Text("Portfolio"),
+                                    mybutton(
+                                        text="flashlight",
+                                        on_click=lambda _: page.go("/flashlight"),
+                                    ),
+                                    mybutton(
+                                        text="Zurück",
+                                        on_click=lambda _: page.go("/"),
+                                    ),
+                                ],
+                            )
+                        )
+                    ],
+                )
+            )
+        elif page.route == "/flashlight":
+            page.views.append(
+                ft.View(
+                    horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                    vertical_alignment=ft.MainAxisAlignment.CENTER,
+                    decoration=mydecoration(),
+                    bgcolor=bgcolor,
+                    route="/flashlight",
+                    appbar=myappbar(page=page),
+                    controls=[
+                        ft.SafeArea(
+                            ft.Column(
+                                [
                                     ft.Text("Über uns"),
+                                    ft.TextButton(text="On/Off",icon=ft.Icons.FLASH_AUTO, on_click= lambda _:flashlight),
                                     mybutton(
                                         text="Zurück",
                                         on_click=lambda _: page.go("/"),
