@@ -113,7 +113,7 @@ def main(page: ft.Page):
                             ft.Column(
                                 [
                                     ft.Text("Über uns"),
-                                    ft.TextButton(text="On/Off",icon=ft.Icons.FLASH_AUTO, on_click= lambda _:flashlight),
+                                    ft.TextButton(text="On/Off",icon=ft.Icons.FLASH_AUTO, on_click= lambda _:flashlight.toggle()),
                                     mybutton(
                                         text="Zurück",
                                         on_click=lambda _: page.go("/"),
