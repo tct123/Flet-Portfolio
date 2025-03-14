@@ -30,10 +30,8 @@ def mybutton(text, on_click):
 def main(page: ft.Page):
     bgcolor = ft.Colors.TRANSPARENT
     page.title = "Flet Portfolio"
-
     def route_change(e):
         page.views.clear()
-
         if page.route == "/":
             page.views.append(
                 ft.View(
