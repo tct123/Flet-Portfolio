@@ -5,15 +5,21 @@ description = ""
 readme = "README.md"
 requires-python = ">=3.9"
 authors = [{ name = "tct123", email = "tct1234@protonmail.com" }]
-dependencies = ["flet-audio", "flet==0.27.6", "flet_localisation", "mylocale"]
+dependencies = [
+    "flet-audio",
+    "flet==0.27.6",
+    "flet_localisation",
+    "mylocale",
+    "flet_flashlight",
+]
 
 [tool.flet]
 # org name in reverse domain name notation, e.g. "com.mycompany".
 # Combined with project.name to build bundle ID for iOS and Android apps
 org = "de.cmg"
-compile.app = false      # --compile-app
-compile.packages = false # --compile-packages
-compile.cleanup = false  # --cleanup-on-compile
+compile.app = true      # --compile-app
+compile.packages = true # --compile-packages
+compile.cleanup = true  # --cleanup-on-compile
 
 # project display name that is used as an app title on Android and iOS home screens,
 # shown in window titles and about app dialogs on desktop.
