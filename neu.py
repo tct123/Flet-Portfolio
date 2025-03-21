@@ -3,19 +3,19 @@ import flet as ft
 
 def main(page: ft.Page):
     colors = page.client_storage.get("favorite_colors")
-    print(colors)
-
     def handle_nav_change(e):
-        # Clear the current controls and add the new controls based on the selected index
         page.controls.clear()
-        if e.control.selected_index == 0:
+        selected_index = page.navigation_bar.selected_index if e is None else e.control.selected_index
+        if selected_index == 0:
             page.add(ft.Text("Explore!"))
-        elif e.control.selected_index == 1:
+        elif selected_index == 1:
             page.add(ft.Text("Commute!"))
-        elif e.control.selected_index == 2:
+        elif selected_index == 2:
             page.add(ft.Text("Bookmark!"))
         page.update()
-
+    def set_selected_index():
+        page.navigation_bar.selected_index = 0
+        handle_nav_change(None)
     page.title = "NavigationBar Example"
     page.navigation_bar = ft.NavigationBar(
         on_change=handle_nav_change,
@@ -29,8 +29,6 @@ def main(page: ft.Page):
             ),
         ],
     )
-    # Add an initial control
-    page.add(ft.Text(f"{colors}"))
-
-
+    page.add(ft.Text("Hello"))
+    set_selected_index()
 ft.app(target=main)
