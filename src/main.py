@@ -32,7 +32,11 @@ def main(page: ft.Page):
     bgcolor = ft.Colors.TRANSPARENT
     page.title = "Flet Portfolio"
     flashlight = ffl.Flashlight()
-    page.overlay.append(flashlight)
+    platform = page.platform.name.lower()
+    print(platform)
+    if platform in ["android", "ios"]:
+        page.overlay.append(flashlight)
+
     def route_change(e):
         page.views.clear()
         if page.route == "/":
@@ -113,7 +117,11 @@ def main(page: ft.Page):
                             ft.Column(
                                 [
                                     ft.Text("Über uns"),
-                                    ft.TextButton(text="On/Off",icon=ft.Icons.FLASH_AUTO, on_click= lambda _:flashlight.toggle()),
+                                    ft.TextButton(
+                                        text="On/Off",
+                                        icon=ft.Icons.FLASH_AUTO,
+                                        on_click=lambda _: flashlight.toggle(),
+                                    ),
                                     mybutton(
                                         text="Zurück",
                                         on_click=lambda _: page.go("/"),
