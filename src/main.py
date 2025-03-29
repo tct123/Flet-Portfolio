@@ -33,6 +33,8 @@ def main(page: ft.Page):
     page.title = "Flet Portfolio"
     flashlight = ffl.Flashlight()
     platform = page.platform.name.lower()
+    page.window.min_height = 500
+    page.window.min_width = 500
     print(platform)
     if platform in ["android", "ios"]:
         page.overlay.append(flashlight)
