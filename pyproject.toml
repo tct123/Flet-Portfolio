@@ -34,8 +34,6 @@ copyright = "Copyright (C) 2025 by Creative Media Group"
 [tool.flet.app]
 path = "src"
 
-flutter.dependencies = ["flet_flashlight"]
-
 [tool.flet.android]
 dependencies = ["pyjnius"]
 
