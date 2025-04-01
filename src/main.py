@@ -5,27 +5,27 @@ from localisation import *
 import flet_flashlight as ffl
 
 
-def mybutton(text, on_click):
-    def hover(e):
-        if e.data == "true":
-            e.control.opacity = 0.5
-            e.control.update()
-        else:
-            e.control.opacity = 1
-            e.control.update()
-
-    container = ft.Container(
+def mybutton(text: str, on_click, disabled: bool = False):
+    container = ft.ElevatedButton(
         content=ft.Text(text, size=20),
         height=50,
         on_click=on_click,
-        bgcolor=ft.Colors.RED,
-        border_radius=10,
-        alignment=ft.alignment.center,
+        bgcolor={
+            ft.ControlState.DEFAULT: ft.Colors.RED,
+            ft.ControlState.PRESSED: ft.Colors.TRANSPARENT,
+        },
         expand=True,
-        on_hover=hover,
+        disabled=disabled,
     )
 
     return container
+
+
+def is_mobile(platform: str):
+    if platform in ["android", "ios"]:
+        return False
+    else:
+        return True
 
 
 def main(page: ft.Page):
@@ -35,7 +35,6 @@ def main(page: ft.Page):
     platform = page.platform.name.lower()
     page.window.min_height = 500
     page.window.min_width = 500
-    print(platform)
     if platform in ["android", "ios"]:
         page.overlay.append(flashlight)
 
@@ -67,6 +66,7 @@ def main(page: ft.Page):
                                         content=mybutton(
                                             text=CONTNUEBTN(page=page),
                                             on_click=lambda _: page.go("/portfolio"),
+                                            disabled=False,
                                         ),
                                         alignment=ft.alignment.center,
                                     ),
@@ -94,10 +94,12 @@ def main(page: ft.Page):
                                     mybutton(
                                         text="flashlight",
                                         on_click=lambda _: page.go("/flashlight"),
+                                        disabled=is_mobile(platform),
                                     ),
                                     mybutton(
                                         text="Zurück",
                                         on_click=lambda _: page.go("/"),
+                                        disabled=False,
                                     ),
                                 ],
                             )
