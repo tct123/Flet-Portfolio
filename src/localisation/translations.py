@@ -26,3 +26,12 @@ def CONTNUEBTN(page):
         target_key="CONTNUEBTN",
         langcode=langcode,
     )
+def FLASHLIGHTMSG(page):
+    myplatfom = str(page.platform)
+    langcode = str(locale(platform=myplatfom)).split("_")[0]
+    region = str(locale(platform=myplatfom)).split("_")[1]
+    return tr(
+        csv_file=trfile,
+        target_key="FLASHLIGHTMSG",
+        langcode=langcode,
+    )

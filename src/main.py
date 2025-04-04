@@ -92,7 +92,7 @@ def main(page: ft.Page):
                                 [
                                     ft.Text("Portfolio"),
                                     mybutton(
-                                        text="flashlight",
+                                        text=FLASHLIGHTMSG(page=page),
                                         on_click=lambda _: page.go("/flashlight"),
                                         disabled=is_mobile(platform),
                                     ),
