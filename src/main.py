@@ -5,10 +5,11 @@ from localisation import *
 import flet_flashlight as ffl
 
 
-def mybutton(text: str, on_click, disabled: bool = False):
+def mybutton(text: str, on_click, width, disabled: bool = False):
     container = ft.ElevatedButton(
         content=ft.Text(text, size=20),
         height=50,
+        width=width,
         on_click=on_click,
         bgcolor={
             ft.ControlState.DEFAULT: ft.Colors.RED,
@@ -16,6 +17,7 @@ def mybutton(text: str, on_click, disabled: bool = False):
         },
         expand=True,
         disabled=disabled,
+        style=ft.ButtonStyle(shape=ft.RoundedRectangleBorder(radius=10)),
     )
 
     return container
@@ -37,6 +39,9 @@ def main(page: ft.Page):
     page.window.min_width = 500
     if platform in ["android", "ios"]:
         page.overlay.append(flashlight)
+
+    def on_resized(e):
+        print("Hello")
 
     def route_change(e):
         page.views.clear()
@@ -67,6 +72,7 @@ def main(page: ft.Page):
                                             text=CONTNUEBTN(page=page),
                                             on_click=lambda _: page.go("/portfolio"),
                                             disabled=False,
+                                            width=page.width * 0.5,
                                         ),
                                         alignment=ft.alignment.center,
                                     ),
@@ -95,11 +101,13 @@ def main(page: ft.Page):
                                         text=FLASHLIGHTMSG(page=page),
                                         on_click=lambda _: page.go("/flashlight"),
                                         disabled=is_mobile(platform),
+                                        width=page.width * 0.5,
                                     ),
                                     mybutton(
                                         text="Zurück",
                                         on_click=lambda _: page.go("/"),
                                         disabled=False,
+                                        width=page.width * 0.5,
                                     ),
                                 ],
                             )
