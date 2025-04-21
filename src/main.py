@@ -6,7 +6,7 @@ import flet_flashlight as ffl
 
 
 def mybutton(text: str, on_click, width, disabled: bool = False):
-    container = ft.ElevatedButton(
+    return ft.ElevatedButton(
         content=ft.Text(text, size=20),
         height=50,
         width=width,
@@ -19,8 +19,6 @@ def mybutton(text: str, on_click, width, disabled: bool = False):
         disabled=disabled,
         style=ft.ButtonStyle(shape=ft.RoundedRectangleBorder(radius=10)),
     )
-
-    return container
 
 
 def is_mobile(platform: str):
