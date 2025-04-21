@@ -5,7 +5,7 @@ from localisation import *
 import flet_flashlight as ffl
 
 
-def mybutton(text: str, on_click, width, disabled: bool = False):
+def mybutton(text: str, on_click, width: int, disabled: bool = False):
     return ft.ElevatedButton(
         content=ft.Text(text, size=20),
         height=50,
