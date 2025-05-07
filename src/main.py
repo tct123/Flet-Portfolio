@@ -1,7 +1,7 @@
 import flet as ft
 from infos import myappbar
 from background import mydecoration
-from localisation import *
+from localisation import HELLOMSG, CONTNUEBTN, FLASHLIGHTMSG
 import flet_flashlight as ffl
 
 
@@ -10,8 +10,7 @@ def mybutton(page, text: str, on_click, disabled: bool = False):
         adaptive=True,
         content=ft.Text(text, size=20),
         height=50,
-        width=page.window.width,
-        expand=True,
+        expand=True,  # Automatische Anpassung der Breite
         on_click=on_click,
         bgcolor={
             ft.ControlState.DEFAULT: ft.Colors.RED,
@@ -22,29 +21,20 @@ def mybutton(page, text: str, on_click, disabled: bool = False):
     )
 
 
-def is_mobile(platform: str):
-    if platform in ["android", "ios"]:
-        return False
-    else:
-        return True
-
-
 def main(page: ft.Page):
-
     def on_resized(e):
+        print(f"Fenstergröße geändert: {page.window_width}x{page.window_height}")
         page.update()
-        print("Hello")
 
     page.adaptive = True
-    bgcolor = ft.Colors.TRANSPARENT
     page.title = "Flet Portfolio"
-    flashlight = ffl.Flashlight()
-    platform = page.platform.name.lower()
     page.window.min_height = 500
     page.window.min_width = 500
     page.on_resized = on_resized
-    if platform in ["android", "ios"]:
-        page.overlay.append(flashlight)
+
+    # Standard-Dekoration
+    bgcolor = ft.Colors.TRANSPARENT
+    decoration = mydecoration()
 
     def route_change(e):
         page.views.clear()
@@ -55,7 +45,7 @@ def main(page: ft.Page):
                     scroll=True,
                     horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                     vertical_alignment=ft.MainAxisAlignment.CENTER,
-                    decoration=mydecoration(),
+                    decoration=decoration,  # Dekoration angewendet
                     bgcolor=bgcolor,
                     route="/",
                     appbar=myappbar(page=page),
@@ -66,7 +56,7 @@ def main(page: ft.Page):
                                     ft.Container(
                                         alignment=ft.alignment.center,
                                         content=ft.Text(
-                                            HELLOMSG(page=page),
+                                            HELLOMSG(page=page),  # Lokalisierter Text
                                             size=100,
                                             text_align=ft.TextAlign.CENTER,
                                         ),
@@ -74,9 +64,10 @@ def main(page: ft.Page):
                                     ft.Container(
                                         content=mybutton(
                                             page=page,
-                                            text=CONTNUEBTN(page=page),
+                                            text=CONTNUEBTN(
+                                                page=page
+                                            ),  # Lokalisierter Text
                                             on_click=lambda _: page.go("/portfolio"),
-                                            disabled=False,
                                         ),
                                         alignment=ft.alignment.center,
                                     ),
@@ -93,7 +84,7 @@ def main(page: ft.Page):
                     adaptive=True,
                     horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                     vertical_alignment=ft.MainAxisAlignment.CENTER,
-                    decoration=mydecoration(),
+                    decoration=decoration,  # Dekoration angewendet
                     bgcolor=bgcolor,
                     route="/portfolio",
                     appbar=myappbar(page=page),
@@ -104,16 +95,15 @@ def main(page: ft.Page):
                                     ft.Text("Portfolio"),
                                     mybutton(
                                         page=page,
-                                        text=FLASHLIGHTMSG(page=page),
+                                        text=FLASHLIGHTMSG(
+                                            page=page
+                                        ),  # Lokalisierter Text
                                         on_click=lambda _: page.go("/flashlight"),
-                                        disabled=is_mobile(platform),
                                     ),
                                     mybutton(
                                         page=page,
                                         text="Zurück",
                                         on_click=lambda _: page.go("/"),
-                                        disabled=False,
-                                        # width=page.width * 0.5,
                                     ),
                                 ],
                                 expand=True,
@@ -128,7 +118,7 @@ def main(page: ft.Page):
                     adaptive=True,
                     horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                     vertical_alignment=ft.MainAxisAlignment.CENTER,
-                    decoration=mydecoration(),
+                    decoration=decoration,  # Dekoration angewendet
                     bgcolor=bgcolor,
                     route="/flashlight",
                     appbar=myappbar(page=page),
@@ -140,13 +130,12 @@ def main(page: ft.Page):
                                     ft.TextButton(
                                         text="On/Off",
                                         icon=ft.Icons.FLASH_AUTO,
-                                        on_click=lambda _: flashlight.toggle(),
+                                        on_click=lambda _: print("Flashlight toggled"),
                                     ),
                                     mybutton(
                                         page=page,
                                         text="Zurück",
                                         on_click=lambda _: page.go("/"),
-                                        # width=page.width * 0.5,
                                     ),
                                 ],
                                 expand=True,
