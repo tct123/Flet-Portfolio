@@ -5,11 +5,12 @@ from localisation import *
 import flet_flashlight as ffl
 
 
-def mybutton(text: str, on_click, disabled: bool = False):
+def mybutton(page, text: str, on_click, disabled: bool = False):
     return ft.ElevatedButton(
         adaptive=True,
         content=ft.Text(text, size=20),
         height=50,
+        width=page.window.width,
         expand=True,
         on_click=on_click,
         bgcolor={
@@ -72,10 +73,10 @@ def main(page: ft.Page):
                                     ),
                                     ft.Container(
                                         content=mybutton(
+                                            page=page,
                                             text=CONTNUEBTN(page=page),
                                             on_click=lambda _: page.go("/portfolio"),
                                             disabled=False,
-                                            # width=page.width * 0.5,
                                         ),
                                         alignment=ft.alignment.center,
                                     ),
@@ -102,12 +103,13 @@ def main(page: ft.Page):
                                 [
                                     ft.Text("Portfolio"),
                                     mybutton(
+                                        page=page,
                                         text=FLASHLIGHTMSG(page=page),
                                         on_click=lambda _: page.go("/flashlight"),
                                         disabled=is_mobile(platform),
-                                        # width=page.width * 0.5,
                                     ),
                                     mybutton(
+                                        page=page,
                                         text="Zurück",
                                         on_click=lambda _: page.go("/"),
                                         disabled=False,
@@ -141,6 +143,7 @@ def main(page: ft.Page):
                                         on_click=lambda _: flashlight.toggle(),
                                     ),
                                     mybutton(
+                                        page=page,
                                         text="Zurück",
                                         on_click=lambda _: page.go("/"),
                                         # width=page.width * 0.5,
