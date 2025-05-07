@@ -23,7 +23,7 @@ def mybutton(page, text: str, on_click, disabled: bool = False):
 
 def main(page: ft.Page):
     def on_resized(e):
-        print(f"Fenstergröße geändert: {page.window_width}x{page.window_height}")
+        print(f"Fenstergröße geändert: {page.window.width}x{page.window.height}")
         page.update()
 
     page.adaptive = True
@@ -62,12 +62,19 @@ def main(page: ft.Page):
                                         ),
                                     ),
                                     ft.Container(
-                                        content=mybutton(
-                                            page=page,
-                                            text=CONTNUEBTN(
-                                                page=page
-                                            ),  # Lokalisierter Text
-                                            on_click=lambda _: page.go("/portfolio"),
+                                        content=ft.Row(
+                                            [
+                                                mybutton(
+                                                    page=page,
+                                                    text=CONTNUEBTN(
+                                                        page=page
+                                                    ),  # Lokalisierter Text
+                                                    on_click=lambda _: page.go(
+                                                        "/portfolio"
+                                                    ),
+                                                )
+                                            ],
+                                            alignment=ft.MainAxisAlignment.CENTER,
                                         ),
                                         alignment=ft.alignment.center,
                                     ),
@@ -92,18 +99,33 @@ def main(page: ft.Page):
                         ft.SafeArea(
                             ft.Column(
                                 [
-                                    ft.Text("Portfolio"),
-                                    mybutton(
-                                        page=page,
-                                        text=FLASHLIGHTMSG(
-                                            page=page
-                                        ),  # Lokalisierter Text
-                                        on_click=lambda _: page.go("/flashlight"),
+                                    ft.Row(
+                                        [ft.Text("Portfolio")],
+                                        alignment=ft.MainAxisAlignment.CENTER,
                                     ),
-                                    mybutton(
-                                        page=page,
-                                        text="Zurück",
-                                        on_click=lambda _: page.go("/"),
+                                    ft.Row(
+                                        [
+                                            mybutton(
+                                                page=page,
+                                                text=FLASHLIGHTMSG(
+                                                    page=page
+                                                ),  # Lokalisierter Text
+                                                on_click=lambda _: page.go(
+                                                    "/flashlight"
+                                                ),
+                                            )
+                                        ],
+                                        alignment=ft.MainAxisAlignment.CENTER,
+                                    ),
+                                    ft.Row(
+                                        [
+                                            mybutton(
+                                                page=page,
+                                                text="Zurück",
+                                                on_click=lambda _: page.go("/"),
+                                            )
+                                        ],
+                                        alignment=ft.MainAxisAlignment.CENTER,
                                     ),
                                 ],
                                 expand=True,
@@ -126,16 +148,31 @@ def main(page: ft.Page):
                         ft.SafeArea(
                             ft.Column(
                                 [
-                                    ft.Text("Über uns"),
-                                    ft.TextButton(
-                                        text="On/Off",
-                                        icon=ft.Icons.FLASH_AUTO,
-                                        on_click=lambda _: print("Flashlight toggled"),
+                                    ft.Row(
+                                        [ft.Text("Über uns")],
+                                        alignment=ft.MainAxisAlignment.CENTER,
                                     ),
-                                    mybutton(
-                                        page=page,
-                                        text="Zurück",
-                                        on_click=lambda _: page.go("/"),
+                                    ft.Row(
+                                        [
+                                            ft.TextButton(
+                                                text="On/Off",
+                                                icon=ft.Icons.FLASH_AUTO,
+                                                on_click=lambda _: print(
+                                                    "Flashlight toggled"
+                                                ),
+                                            )
+                                        ],
+                                        alignment=ft.MainAxisAlignment.CENTER,
+                                    ),
+                                    ft.Row(
+                                        [
+                                            mybutton(
+                                                page=page,
+                                                text="Zurück",
+                                                on_click=lambda _: page.go("/"),
+                                            )
+                                        ],
+                                        alignment=ft.MainAxisAlignment.CENTER,
                                     ),
                                 ],
                                 expand=True,
