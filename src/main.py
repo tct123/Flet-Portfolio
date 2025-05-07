@@ -5,18 +5,17 @@ from localisation import *
 import flet_flashlight as ffl
 
 
-def mybutton(text: str, on_click, width: int, disabled: bool = False):
+def mybutton(text: str, on_click, disabled: bool = False):
     return ft.ElevatedButton(
         adaptive=True,
         content=ft.Text(text, size=20),
         height=50,
-        width=width,
+        expand=True,
         on_click=on_click,
         bgcolor={
             ft.ControlState.DEFAULT: ft.Colors.RED,
             ft.ControlState.PRESSED: ft.Colors.TRANSPARENT,
         },
-        expand=True,
         disabled=disabled,
         style=ft.ButtonStyle(shape=ft.RoundedRectangleBorder(radius=10)),
     )
@@ -32,6 +31,7 @@ def is_mobile(platform: str):
 def main(page: ft.Page):
 
     def on_resized(e):
+        page.update()
         print("Hello")
 
     page.adaptive = True
@@ -44,10 +44,6 @@ def main(page: ft.Page):
     page.on_resized = on_resized
     if platform in ["android", "ios"]:
         page.overlay.append(flashlight)
-
-    def on_resized(e):
-        page.update()
-        print("Hello")
 
     def route_change(e):
         page.views.clear()
@@ -79,7 +75,7 @@ def main(page: ft.Page):
                                             text=CONTNUEBTN(page=page),
                                             on_click=lambda _: page.go("/portfolio"),
                                             disabled=False,
-                                            width=page.width * 0.5,
+                                            # width=page.width * 0.5,
                                         ),
                                         alignment=ft.alignment.center,
                                     ),
@@ -109,15 +105,16 @@ def main(page: ft.Page):
                                         text=FLASHLIGHTMSG(page=page),
                                         on_click=lambda _: page.go("/flashlight"),
                                         disabled=is_mobile(platform),
-                                        width=page.width * 0.5,
+                                        # width=page.width * 0.5,
                                     ),
                                     mybutton(
                                         text="Zurück",
                                         on_click=lambda _: page.go("/"),
                                         disabled=False,
-                                        width=page.width * 0.5,
+                                        # width=page.width * 0.5,
                                     ),
                                 ],
+                                expand=True,
                             )
                         )
                     ],
@@ -146,9 +143,10 @@ def main(page: ft.Page):
                                     mybutton(
                                         text="Zurück",
                                         on_click=lambda _: page.go("/"),
-                                        width=page.width * 0.5,
+                                        # width=page.width * 0.5,
                                     ),
                                 ],
+                                expand=True,
                             )
                         )
                     ],
