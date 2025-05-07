@@ -2,7 +2,8 @@ import flet as ft
 from infos import myappbar
 from background import mydecoration
 from localisation import HELLOMSG, CONTNUEBTN, FLASHLIGHTMSG
-import flet_flashlight as ffl
+
+# import flet_flashlight as ffl
 
 
 def mybutton(page, text: str, on_click, disabled: bool = False):
@@ -156,6 +157,7 @@ def main(page: ft.Page):
                                         [
                                             ft.TextButton(
                                                 text="On/Off",
+                                                disabled=True,
                                                 icon=ft.Icons.FLASH_AUTO,
                                                 on_click=lambda _: print(
                                                     "Flashlight toggled"
