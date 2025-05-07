@@ -7,6 +7,7 @@ import flet_flashlight as ffl
 
 def mybutton(text: str, on_click, width: int, disabled: bool = False):
     return ft.ElevatedButton(
+        adaptive=True,
         content=ft.Text(text, size=20),
         height=50,
         width=width,
@@ -29,16 +30,23 @@ def is_mobile(platform: str):
 
 
 def main(page: ft.Page):
+
+    def on_resized(e):
+        print("Hello")
+
+    page.adaptive = True
     bgcolor = ft.Colors.TRANSPARENT
     page.title = "Flet Portfolio"
     flashlight = ffl.Flashlight()
     platform = page.platform.name.lower()
     page.window.min_height = 500
     page.window.min_width = 500
+    page.on_resized = on_resized
     if platform in ["android", "ios"]:
         page.overlay.append(flashlight)
 
     def on_resized(e):
+        page.update()
         print("Hello")
 
     def route_change(e):
@@ -46,6 +54,7 @@ def main(page: ft.Page):
         if page.route == "/":
             page.views.append(
                 ft.View(
+                    adaptive=True,
                     scroll=True,
                     horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                     vertical_alignment=ft.MainAxisAlignment.CENTER,
@@ -84,6 +93,7 @@ def main(page: ft.Page):
         elif page.route == "/portfolio":
             page.views.append(
                 ft.View(
+                    adaptive=True,
                     horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                     vertical_alignment=ft.MainAxisAlignment.CENTER,
                     decoration=mydecoration(),
@@ -116,6 +126,7 @@ def main(page: ft.Page):
         elif page.route == "/flashlight":
             page.views.append(
                 ft.View(
+                    adaptive=True,
                     horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                     vertical_alignment=ft.MainAxisAlignment.CENTER,
                     decoration=mydecoration(),
@@ -135,6 +146,7 @@ def main(page: ft.Page):
                                     mybutton(
                                         text="Zurück",
                                         on_click=lambda _: page.go("/"),
+                                        width=page.width * 0.5,
                                     ),
                                 ],
                             )
@@ -142,7 +154,6 @@ def main(page: ft.Page):
                     ],
                 )
             )
-
         page.update()
 
     page.on_route_change = route_change
