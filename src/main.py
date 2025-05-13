@@ -81,6 +81,7 @@ def main(page: ft.Page):
                                     ),
                                 ],
                                 expand=True,
+                                alignment=ft.MainAxisAlignment.SPACE_EVENLY,
                             )
                         )
                     ],
