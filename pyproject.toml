@@ -3,9 +3,9 @@ name = "flet-portfolio"
 version = "0.1.0"
 description = ""
 readme = "README.md"
-requires-python = ">=3.9,<4.0"
+requires-python = ">=3.9"
 authors = [{ name = "tct123", email = "tct1234@protonmail.com" }]
-dependencies = ["flet-audio", "flet==0.28.2", "flet_localisation", "mylocale"]
+dependencies = ["flet==0.28.3", "flet-audio", "flet_localisation", "mylocale"]
 
 [tool.flet]
 # org name in reverse domain name notation, e.g. "com.mycompany".
@@ -35,13 +35,13 @@ dependencies = ["pyjnius"]
 dependencies = ["pyobjus"]
 
 [tool.uv]
-dev-dependencies = ["flet[all]==0.28.2"]
+dev-dependencies = ["flet[all]==0.28.3"]
 
 [tool.poetry]
 package-mode = false
 
 [tool.poetry.group.dev.dependencies]
-flet = { extras = ["all"], version = "0.28.2" }
+flet = { extras = ["all"], version = "0.28.3" }
 
 [tool.flet.deep_linking]
 scheme = "https"          # --deep-linking-scheme
