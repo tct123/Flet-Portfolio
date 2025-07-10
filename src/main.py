@@ -2,8 +2,14 @@ import flet as ft
 from infos import myappbar
 from background import mydecoration
 from localisation import HELLOMSG, CONTNUEBTN, FLASHLIGHTMSG
+from flet.app import os
+from mylocale import TR
+from flet_localisation import locale
+from localisation.translations import check_rtl
 
 # import flet_flashlight as ffl
+trfile = f"{os.path.dirname(__file__)}/assets/localisation.csv"
+print(trfile)
 
 
 def mybutton(page, text: str, on_click, disabled: bool = False):
@@ -53,6 +59,7 @@ def main(page: ft.Page):
                     controls=[
                         ft.SafeArea(
                             ft.Column(
+                                rtl=check_rtl(page=page),
                                 controls=[
                                     ft.Container(
                                         alignment=ft.alignment.center,
@@ -100,7 +107,8 @@ def main(page: ft.Page):
                     controls=[
                         ft.SafeArea(
                             ft.Column(
-                                [
+                                rtl=check_rtl(page=page),
+                                controls=[
                                     ft.Row(
                                         [ft.Text("Portfolio")],
                                         alignment=ft.MainAxisAlignment.CENTER,
@@ -149,7 +157,8 @@ def main(page: ft.Page):
                     controls=[
                         ft.SafeArea(
                             ft.Column(
-                                [
+                                rtl=check_rtl(page=page),
+                                controls=[
                                     ft.Row(
                                         [ft.Text("Über uns")],
                                         alignment=ft.MainAxisAlignment.CENTER,
