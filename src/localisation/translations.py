@@ -11,7 +11,7 @@ def check_rtl(page):
     langcode = str(locale(platform=myplatfom)).split("_")[0]
     region = str(locale(platform=myplatfom)).split("_")[1]
     tr = TR(langcode=langcode, csv_file=trfile)
-    return tr.check_rtl()
+    return tr.check_rtl(langcode=langcode)
 
 
 def HELLOMSG(page):
@@ -43,5 +43,16 @@ def FLASHLIGHTMSG(page):
     tr = TR(langcode=langcode, csv_file=trfile)
     return tr.tr(
         target_key="FLASHLIGHTMSG",
+        langcode=langcode,
+    )
+
+
+def APPBARTOOLTIPMSG(page):
+    myplatfom = str(page.platform)
+    langcode = str(locale(platform=myplatfom)).split("_")[0]
+    region = str(locale(platform=myplatfom)).split("_")[1]
+    tr = TR(langcode=langcode, csv_file=trfile)
+    return tr.tr(
+        target_key="APPBARTOOLTIP",
         langcode=langcode,
     )

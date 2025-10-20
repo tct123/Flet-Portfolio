@@ -1,4 +1,5 @@
 import flet as ft
+from localisation import APPBARTOOLTIPMSG
 
 
 def myappbar(page):
@@ -11,6 +12,7 @@ def myappbar(page):
         actions=[
             ft.PopupMenuButton(
                 bgcolor=bgcolor,
+                tooltip=APPBARTOOLTIPMSG(page=page),
                 items=[
                     ft.PopupMenuItem(
                         icon=ft.Icons.CLOUD,
