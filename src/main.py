@@ -42,7 +42,7 @@ def main(page: ft.Page):
         page.update()
 
     page.on_route_change = route_change
-    page.push_route(page.route)
+    page.go(page.route)
 
 
 ft.run(main=main)

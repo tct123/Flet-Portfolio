@@ -35,7 +35,7 @@ def home(page, bgcolor, decoration):
                                         text=CONTNUEBTN(
                                             page=page
                                         ),  # Lokalisierter Text
-                                        on_click=lambda _: page.push_route(
+                                        on_click=lambda _: page.go(
                                             "/portfolio"
                                         ),
                                     )
