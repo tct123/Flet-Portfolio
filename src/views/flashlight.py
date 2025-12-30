@@ -39,7 +39,7 @@ def flashlight(page, decoration, bgcolor):
                                 mybutton(
                                     page=page,
                                     text="Zurück",
-                                    on_click=lambda _: page.push_route("/"),
+                                    on_click=lambda _: page.go("/"),
                                 )
                             ],
                             alignment=ft.MainAxisAlignment.CENTER,
