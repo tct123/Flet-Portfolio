@@ -35,7 +35,9 @@ def home(page, bgcolor, decoration):
                                         text=CONTNUEBTN(
                                             page=page
                                         ),  # Lokalisierter Text
-                                        on_click=lambda _: page.go("/portfolio"),
+                                        on_click=lambda _: page.push_route(
+                                            "/portfolio"
+                                        ),
                                     )
                                 ],
                                 alignment=ft.MainAxisAlignment.CENTER,
