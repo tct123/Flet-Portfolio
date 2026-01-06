@@ -21,7 +21,7 @@ def home(page, bgcolor, decoration):
                     rtl=check_rtl(page=page),
                     controls=[
                         ft.Container(
-                            alignment=ft.alignment.center,
+                            alignment=ft.Alignment.CENTER,
                             content=ft.Text(
                                 HELLOMSG(page=page),  # Lokalisierter Text
                                 size=100,
@@ -43,7 +43,7 @@ def home(page, bgcolor, decoration):
                                 ],
                                 alignment=ft.MainAxisAlignment.CENTER,
                             ),
-                            alignment=ft.alignment.center,
+                            alignment=ft.Alignment.CENTER,
                         ),
                     ],
                     expand=True,
