@@ -3,6 +3,7 @@ from localisation import check_rtl, CONTNUEBTN, HELLOMSG
 from infos import myappbar
 from components import mybutton
 from localisation import HELLOMSG, CONTNUEBTN, FLASHLIGHTMSG
+import asyncio
 
 
 def portfolio(page, decoration, bgcolor):
@@ -28,7 +29,9 @@ def portfolio(page, decoration, bgcolor):
                                 mybutton(
                                     page=page,
                                     text=FLASHLIGHTMSG(page=page),  # Lokalisierter Text
-                                    on_click=lambda _: page.go("/flashlight"),
+                                    on_click=lambda _: asyncio.create_task(
+                                        page.push_route("/flashlight"),
+                                    ),
                                 )
                             ],
                             alignment=ft.MainAxisAlignment.CENTER,
@@ -38,7 +41,9 @@ def portfolio(page, decoration, bgcolor):
                                 mybutton(
                                     page=page,
                                     text="Zurück",
-                                    on_click=lambda _: page.go("/"),
+                                    on_click=lambda _: asyncio.create_task(
+                                        page.push_route("/"),
+                                    ),
                                 )
                             ],
                             alignment=ft.MainAxisAlignment.CENTER,

@@ -6,13 +6,14 @@ from mylocale import TR
 from flet_localisation import locale
 from localisation.translations import check_rtl
 from views import home, portfolio, flashlight
+import asyncio
 
 # import flet_flashlight as ffl
 trfile = f"{os.path.dirname(__file__)}/assets/localisation.csv"
 print(trfile)
 
 
-def main(page: ft.Page):
+async def main(page: ft.Page):
     def on_resized(e):
         print(f"Fenstergröße geändert: {page.window.width}x{page.window.height}")
         page.update()
@@ -42,7 +43,7 @@ def main(page: ft.Page):
         page.update()
 
     page.on_route_change = route_change
-    page.go(page.route)
+    await asyncio.create_task(page.push_route(page.route))
 
 
 ft.run(main=main)

@@ -3,6 +3,7 @@ from localisation import check_rtl, CONTNUEBTN, HELLOMSG
 from infos import myappbar
 from components import mybutton
 from localisation import HELLOMSG, CONTNUEBTN, FLASHLIGHTMSG
+import asyncio
 
 
 def flashlight(page, decoration, bgcolor):
@@ -39,7 +40,9 @@ def flashlight(page, decoration, bgcolor):
                                 mybutton(
                                     page=page,
                                     text="Zurück",
-                                    on_click=lambda _: page.go("/"),
+                                    on_click=lambda _: asyncio.create_task(
+                                        page.push_route("/"),
+                                    ),
                                 )
                             ],
                             alignment=ft.MainAxisAlignment.CENTER,

@@ -2,6 +2,7 @@ import flet as ft
 from localisation import check_rtl, CONTNUEBTN, HELLOMSG
 from infos import myappbar
 from components import mybutton
+import asyncio
 
 
 def home(page, bgcolor, decoration):
@@ -35,8 +36,8 @@ def home(page, bgcolor, decoration):
                                         text=CONTNUEBTN(
                                             page=page
                                         ),  # Lokalisierter Text
-                                        on_click=lambda _: page.go(
-                                            "/portfolio"
+                                        on_click=lambda _: asyncio.create_task(
+                                            page.push_route("/portfolio"),
                                         ),
                                     )
                                 ],
