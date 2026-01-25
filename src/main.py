@@ -9,7 +9,7 @@ from views import home, portfolio, flashlight
 import asyncio
 
 # import flet_flashlight as ffl
-trfile = f"{os.path.dirname(__file__)}/assets/localisation.csv"
+trfile = f"{os.path.dirname(__file__)}/localisation/localisation.csv"
 print(trfile)
 
 
