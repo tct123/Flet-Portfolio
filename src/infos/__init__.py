@@ -7,7 +7,7 @@ async def myappbar(page):
     bgcolor = ft.Colors.TRANSPARENT
     url_launcher = ft.UrlLauncher()
 
-    async def launch_default(e: ft.ControlEvent):
+    async def launch_default(e: ft.Event[ft.PopupMenuItem]):
         url = e.control.data
         print(url)
         await url_launcher.launch_url(url=url)
