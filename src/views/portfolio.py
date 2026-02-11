@@ -6,9 +6,8 @@ from localisation import HELLOMSG, CONTNUEBTN, FLASHLIGHTMSG
 import asyncio
 
 
-def portfolio(page, decoration, bgcolor):
+def portfolio(page: ft.Page, decoration, bgcolor):
     return ft.View(
-        adaptive=True,
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         vertical_alignment=ft.MainAxisAlignment.CENTER,
         decoration=decoration,  # Dekoration angewendet

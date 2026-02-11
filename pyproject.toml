@@ -4,18 +4,17 @@ version = "0.1.0"
 description = ""
 readme = "README.md"
 requires-python = ">=3.10"
-authors = [{ name = "tct123", email = "tct1234@protonmail.com" }]
-
-dependencies = ["flet>=0.80.4", "flet-audio", "flet_localisation", "mylocale"]
+authors = [{ name = "Flet developer", email = "you@example.com" }]
+dependencies = ["flet>=0.80.5", "flet-audio", "flet_localisation", "mylocale"]
 
 [dependency-groups]
-dev = ["flet-cli>=0.80.4", "flet-desktop>=0.80.4", "flet-web>=0.80.4"]
+dev = ["flet-cli>=0.80.5", "flet-desktop>=0.80.5", "flet-web>=0.80.5"]
 
 [tool.flet]
 org = "de.cmg"
 product = "Flet Portfolio"
 company = "Creative Media Group"
-copyright = "Copyright (C) 2026 by Creative Media Group"
+copyright = "Copyright (C) 2023-2026 by Creative Media Group"
 
 [tool.flet.app]
 path = "src"

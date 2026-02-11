@@ -6,9 +6,8 @@ from localisation import HELLOMSG, CONTNUEBTN, FLASHLIGHTMSG
 import asyncio
 
 
-def flashlight(page, decoration, bgcolor):
+def flashlight(page: ft.Page, decoration, bgcolor):
     return ft.View(
-        adaptive=True,
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         vertical_alignment=ft.MainAxisAlignment.CENTER,
         decoration=decoration,  # Dekoration angewendet
@@ -27,7 +26,7 @@ def flashlight(page, decoration, bgcolor):
                         ft.Row(
                             [
                                 ft.TextButton(
-                                    text="On/Off",
+                                    content="On/Off",
                                     disabled=True,
                                     icon=ft.Icons.FLASH_AUTO,
                                     on_click=lambda _: print("Flashlight toggled"),

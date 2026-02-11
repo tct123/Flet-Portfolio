@@ -16,14 +16,14 @@ def myappbar(page):
                 items=[
                     ft.PopupMenuItem(
                         icon=ft.Icons.CLOUD,
-                        text="Github",
+                        content=ft.Text("Github"),
                         on_click=lambda _: page.launch_url(
                             url="https://github.com/tct123"
                         ),
                     ),
                     ft.PopupMenuItem(
                         icon=ft.Icons.PLAY_CIRCLE,
-                        text="YouTube",
+                        content=ft.Text("YouTube"),
                         on_click=lambda _: page.launch_url(
                             url="https://youtube.com/@tc-diy"
                         ),

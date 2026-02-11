@@ -1,7 +1,7 @@
+import os
 import flet as ft
 from infos import myappbar
 from background import mydecoration
-from flet.app import os
 from mylocale import TR
 from flet_localisation import locale
 from localisation.translations import check_rtl
@@ -14,7 +14,7 @@ print(trfile)
 
 
 async def main(page: ft.Page):
-    def on_resized(e):
+    def on_resize(e):
         print(f"Fenstergröße geändert: {page.window.width}x{page.window.height}")
         page.update()
 
@@ -22,7 +22,7 @@ async def main(page: ft.Page):
     page.title = "Flet Portfolio"
     page.window.min_height = 500
     page.window.min_width = 500
-    page.on_resized = on_resized
+    page.on_resize = on_resize
 
     # Standard-Dekoration
     bgcolor = ft.Colors.TRANSPARENT

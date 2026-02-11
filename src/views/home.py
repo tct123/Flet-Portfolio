@@ -5,10 +5,9 @@ from components import mybutton
 import asyncio
 
 
-def home(page, bgcolor, decoration):
+def home(page: ft.Page, bgcolor, decoration):
     return ft.View(
-        adaptive=True,
-        scroll=True,
+        scroll=ft.ScrollMode.ALWAYS,
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         vertical_alignment=ft.MainAxisAlignment.CENTER,
         decoration=decoration,  # Dekoration angewendet
