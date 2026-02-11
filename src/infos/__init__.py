@@ -1,9 +1,17 @@
 import flet as ft
 from localisation import APPBARTOOLTIPMSG
+import asyncio
 
 
-def myappbar(page):
+async def myappbar(page):
     bgcolor = ft.Colors.TRANSPARENT
+    url_launcher = ft.UrlLauncher()
+
+    async def launch_default(e: ft.ControlEvent):
+        url = e.control.data
+        print(url)
+        await url_launcher.launch_url(url=url)
+
     return ft.AppBar(
         title=ft.Text(page.title),
         center_title=True,
@@ -17,16 +25,14 @@ def myappbar(page):
                     ft.PopupMenuItem(
                         icon=ft.Icons.CLOUD,
                         content=ft.Text("Github"),
-                        on_click=lambda _: page.launch_url(
-                            url="https://github.com/tct123"
-                        ),
+                        on_click=launch_default,
+                        data="https://github.com/tct123",
                     ),
                     ft.PopupMenuItem(
                         icon=ft.Icons.PLAY_CIRCLE,
                         content=ft.Text("YouTube"),
-                        on_click=lambda _: page.launch_url(
-                            url="https://youtube.com/@tc-diy"
-                        ),
+                        on_click=launch_default,
+                        data="https://youtube.com/@tc-diy",
                     ),
                 ],
             )
