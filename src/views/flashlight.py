@@ -6,14 +6,14 @@ from localisation import HELLOMSG, CONTNUEBTN, FLASHLIGHTMSG
 import asyncio
 
 
-def flashlight(page: ft.Page, decoration, bgcolor):
+async def flashlight(page: ft.Page, decoration, bgcolor):
     return ft.View(
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         vertical_alignment=ft.MainAxisAlignment.CENTER,
         decoration=decoration,  # Dekoration angewendet
         bgcolor=bgcolor,
         route="/flashlight",
-        appbar=myappbar(page=page),
+        appbar=await myappbar(page=page),
         controls=[
             ft.SafeArea(
                 ft.Column(

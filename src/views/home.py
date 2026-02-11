@@ -5,7 +5,7 @@ from components import mybutton
 import asyncio
 
 
-def home(page: ft.Page, bgcolor, decoration):
+async def home(page: ft.Page, bgcolor, decoration):
     return ft.View(
         scroll=ft.ScrollMode.ALWAYS,
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
@@ -13,7 +13,7 @@ def home(page: ft.Page, bgcolor, decoration):
         decoration=decoration,  # Dekoration angewendet
         bgcolor=bgcolor,
         route="/",
-        appbar=myappbar(page=page),
+        appbar=await myappbar(page=page),
         controls=[
             ft.SafeArea(
                 ft.Column(

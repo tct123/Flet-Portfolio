@@ -30,14 +30,14 @@ async def main(page: ft.Page):
 
     async def route_change():
         page.views.clear()
-        page.views.append(home(page=page, bgcolor=bgcolor, decoration=decoration))
+        page.views.append(await home(page=page, bgcolor=bgcolor, decoration=decoration))
         if page.route == "/portfolio":
             page.views.append(
-                portfolio(page=page, decoration=decoration, bgcolor=bgcolor)
+                await portfolio(page=page, decoration=decoration, bgcolor=bgcolor)
             )
         elif page.route == "/flashlight":
             page.views.append(
-                flashlight(page=page, decoration=decoration, bgcolor=bgcolor)
+                await flashlight(page=page, decoration=decoration, bgcolor=bgcolor)
             )
         page.update()
 
