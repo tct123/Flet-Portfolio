@@ -28,11 +28,10 @@ async def main(page: ft.Page):
     bgcolor = ft.Colors.TRANSPARENT
     decoration = mydecoration()
 
-    def route_change(e):
+    async def route_change():
         page.views.clear()
-        if page.route == "/":
-            page.views.append(home(page=page, bgcolor=bgcolor, decoration=decoration))
-        elif page.route == "/portfolio":
+        page.views.append(home(page=page, bgcolor=bgcolor, decoration=decoration))
+        if page.route == "/portfolio":
             page.views.append(
                 portfolio(page=page, decoration=decoration, bgcolor=bgcolor)
             )
@@ -42,8 +41,16 @@ async def main(page: ft.Page):
             )
         page.update()
 
+    async def view_pop(e: ft.ViewPopEvent):
+        if e.view is not None:
+            print("View pop:", e.view)
+            page.views.remove(e.view)
+            top_view = page.views[-1]
+            await page.push_route(str(top_view.route))
+
+    page.on_view_pop = view_pop
     page.on_route_change = route_change
-    await asyncio.create_task(page.push_route(page.route))
+    await route_change()
 
 
-ft.run(main=main)
+ft.run(main)
